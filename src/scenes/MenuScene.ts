@@ -46,7 +46,8 @@ export class MenuScene extends Phaser.Scene {
       })
       .setOrigin(0.5)
       .setStroke('#2b5a75', 12)
-      .setShadow(0, 5, 'rgba(0,0,0,0.25)', 6);
+      .setShadow(0, 5, 'rgba(0,0,0,0.25)', 6)
+      .setDepth(30);
 
     this.add
       .text(GAME_WIDTH / 2, 246, 'Tüpü bambunun tepesine fırlat!', {
@@ -56,7 +57,8 @@ export class MenuScene extends Phaser.Scene {
         color: '#ffffff'
       })
       .setOrigin(0.5)
-      .setStroke('#2b5a75', 5);
+      .setStroke('#2b5a75', 5)
+      .setDepth(30);
 
     const hs = new HighScores();
     const bestEndless = hs.get('endless');
@@ -86,7 +88,8 @@ export class MenuScene extends Phaser.Scene {
       })
       .setOrigin(0.5)
       .setAlpha(0.85)
-      .setStroke('#2b5a75', 4);
+      .setStroke('#2b5a75', 4)
+      .setDepth(30);
   }
 
   private makeButton(
@@ -98,7 +101,7 @@ export class MenuScene extends Phaser.Scene {
   ): void {
     const w = 330;
     const h = 74;
-    const r = this.add.graphics();
+    const r = this.add.graphics().setDepth(30);
     r.fillStyle(0x000000, 0.18);
     r.fillRoundedRect(GAME_WIDTH / 2 - w / 2 + 3, y - h / 2 + 5, w, h, 20);
     r.fillStyle(color, 1);
@@ -113,7 +116,8 @@ export class MenuScene extends Phaser.Scene {
         fontStyle: '900',
         color: '#ffffff'
       })
-      .setOrigin(0.5);
+      .setOrigin(0.5)
+      .setDepth(31);
     const subTxt = this.add
       .text(GAME_WIDTH / 2, y + 20, sub, {
         fontFamily: FONT,
@@ -121,7 +125,8 @@ export class MenuScene extends Phaser.Scene {
         fontStyle: '600',
         color: '#eaf6ff'
       })
-      .setOrigin(0.5);
+      .setOrigin(0.5)
+      .setDepth(31);
 
     const zone = this.add
       .zone(GAME_WIDTH / 2, y, w, h)
